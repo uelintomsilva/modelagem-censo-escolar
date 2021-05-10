@@ -19,7 +19,7 @@ def createDF(path_list):
 
     df_final = pd.DataFrame(columns=['TP_ETAPA_ENSINO','CO_MUNICIPIO','TP_COR_RACA','CO_UF'])
     filter_columns = ["TP_ETAPA_ENSINO","CO_MUNICIPIO","TP_COR_RACA","CO_UF"]
-    #df_final = pd.DataFrame()
+    
 
     for x in path_list:
         df = pd.read_csv(x,usecols=filter_columns,sep="|")
@@ -56,7 +56,6 @@ if __name__ == '__main__':
     
     path = getCsvPath()
     trybe_df = createDF(path)
-    #print(trybe_df.head())
     sendDfToDb(trybe_df)
 
     print('\n\n########## Quais são os 10 municípios que têm o maior número de pessoas no “Ensino Fundamental de 9 anos - 9º Ano”? ##########\n')
